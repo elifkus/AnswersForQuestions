@@ -25,7 +25,7 @@ public class ListCustomersWithinDistanceAction {
 		return listCustomersWithinDistanceFromLocation(filename, maxDistance, location);
 	}
 	
-	private static List<Customer> listCustomersWithinDistanceFromLocation(String filename, float maxDistance, Location location) 
+	public static List<Customer> listCustomersWithinDistanceFromLocation(String filename, float maxDistance, Location location) 
 			throws IOException, ConversionException  {
 		List<String> customerLines = null;
 		

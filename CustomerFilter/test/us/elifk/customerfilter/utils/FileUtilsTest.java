@@ -30,5 +30,25 @@ public class FileUtilsTest {
 		Assert.assertEquals(expectedSize, lineList.size());	
 		Assert.assertEquals(expectedFirstLine, lineList.get(0));
 	}
+	
+	@Test
+	public void testReadFileEmptyFile() {
+		String folderName = "resources";
+		String fileName = "testdata-1.txt";
+		String path = folderName + File.separator + fileName;
+		int expectedSize = 0;
+		
+		List<String> lineList = null;
+		
+		try {
+			lineList = FileUtils.readAllLinesOfFile(path);
+		} catch (IOException e) {
+			Assert.fail(e.getMessage());
+		}
+		
+		Assert.assertNotNull(lineList);
+		Assert.assertEquals(expectedSize, lineList.size());	
+		
+	}
 
 }

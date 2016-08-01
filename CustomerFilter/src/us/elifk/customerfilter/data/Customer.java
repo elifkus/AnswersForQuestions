@@ -52,5 +52,9 @@ public class Customer implements Comparable<Customer>{
 		return this.userId - other.getUserId();
 	}
 	
+	@Override
+	public int hashCode() {
+		return this.userId;
+	}
 	
 }

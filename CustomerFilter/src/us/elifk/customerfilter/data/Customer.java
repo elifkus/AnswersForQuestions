@@ -1,35 +1,56 @@
 package us.elifk.customerfilter.data;
 
-public class Customer {
+public class Customer implements Comparable<Customer>{
 	private int userId;
 	private String name;
-	private float latitude;
-	private float longitude;
+	
+	private Location location;
+	
+	public Customer(int userId, String name, float latitude, float longitude) {
+		this.location = new Location(latitude, longitude);
+		this.userId = userId;
+		this.name = name;
+	}
 	
 	public int getUserId() {
 		return userId;
 	}
-	public void setUserId(int userId) {
-		this.userId = userId;
-	}
+
 	public String getName() {
 		return name;
 	}
-	public void setName(String name) {
-		this.name = name;
-	}
+
 	public float getLatitude() {
-		return latitude;
+		return this.location.getLatitude();
 	}
-	public void setLatitude(float latitude) {
-		this.latitude = latitude;
-	}
+	
 	public float getLongitude() {
-		return longitude;
+		return this.location.getLongitude();
 	}
-	public void setLongitude(float longitude) {
-		this.longitude = longitude;
+	
+	public Location getLocation () {
+		return this.location;
 	}
+	
+	@Override
+	public String toString() {
+		return "[" + this.userId + "] " + this.name + "(" + this.location.getLatitude() + ", " + this.location.getLongitude();  
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		if (obj == null || this.getClass() != obj.getClass()) {
+			return false;
+		}
 		
-		
+		Customer other = (Customer)obj;
+		return this.userId == other.getUserId();
+	}
+
+	@Override
+	public int compareTo(Customer other) {
+		return this.userId - other.getUserId();
+	}
+	
+	
 }

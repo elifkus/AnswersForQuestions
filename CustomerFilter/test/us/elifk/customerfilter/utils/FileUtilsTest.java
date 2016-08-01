@@ -8,7 +8,7 @@ import org.junit.Assert;
 
 import org.junit.Test;
 
-public class TestFileUtils {
+public class FileUtilsTest {
 
 	@Test
 	public void testReadFile() {
@@ -21,7 +21,7 @@ public class TestFileUtils {
 		List<String> lineList = null;
 		
 		try {
-			lineList = FileUtils.readFile(path);
+			lineList = FileUtils.readAllLinesOfFile(path);
 		} catch (IOException e) {
 			Assert.fail(e.getMessage());
 		}

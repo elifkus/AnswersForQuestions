@@ -20,15 +20,15 @@ public class FileUtils {
 	 * @return list of line strings
 	 * @throws IOException
 	 */
-	public static List<String> readFile(String filename) throws IOException {
+	public static List<String> readAllLinesOfFile(String filename) throws IOException {
 		List<String> lineList = new ArrayList<String>();
 		
-		try(BufferedReader br = new BufferedReader(new FileReader(filename))) {
-		    String line = br.readLine();
+		try (BufferedReader reader = new BufferedReader(new FileReader(filename))) {
+		    String line = reader.readLine();
 
 		    while (line != null) {
 			    lineList.add(line);
-		    	line = br.readLine();
+		    	line = reader.readLine();
 		    }
 		}
 		

@@ -23,7 +23,7 @@ public class CustomerDistanceFilter {
 				filteredCustomers.add(customer);
 			}
 			
-			logger.error(customer + ": " + distance);
+			logger.info(customer + ": " + distance);
 			
 		}
 		

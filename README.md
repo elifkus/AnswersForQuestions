@@ -11,3 +11,6 @@ The second project I’m most proud of is non-technical. I started a women’s d
 The answer for the 2nd question is at https://github.com/elifkus/AnswersForQuestions/tree/master/unpacker
 I implemented it in Python. 
 
+## Answer for 3rd Question:
+The answer for the 3rd question is at https://github.com/elifkus/AnswersForQuestions/tree/master/CustomerFilter
+I implemented it in Java.

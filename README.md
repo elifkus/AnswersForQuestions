@@ -14,3 +14,28 @@ I implemented it in Python.
 ## Answer for 3rd Question:
 The answer for the 3rd question is at https://github.com/elifkus/AnswersForQuestions/tree/master/CustomerFilter
 I implemented it in Java.
+
+I divided the task into several tasks:
+
+ * Reading the lines from the file
+ * Converting the JSON strings into a Java Object
+ * Calculating the distances and filtering based on that distance
+ *  Printing the list
+ 
+
+### Reading the lines from the file
+The first task is reading the lines from the file. I put that method into a FileUtils file, because I think this method can be reused. 
+
+### Converting the JSON strings into a Java Object
+The second task is converting the JSON strings into Customer objects. I implemented two objects, the Customer object and the ExternalCustomer object. I use the ExternalCustomer object for deserializing the JSON string into a Java object. I prefered to use an intermediate object, to keep the internal and external data formats separate. Also the Gson deserialization to ExternalCustomer was much simpler than implementing the Gson deserialization to the Customer object directly. I immediately convert the converted object to the Customer object. The Customer object, has a Location field for the latitude and longitude fields. I put them together in an object because they don't make sense on their own and distance implementation belongs best in the location object. Both the Location and Customer objects are immutable.
+
+### Calculating the distances and filtering based on that distance
+The third task is filtering the customers based on the distance from the Intercom office. I implemented the distance calculation within the Location class, because a distance is between two locations.
+I created a CustomerDistanceFilter object where I calculate the distance and filter the Customers that are within the desired distance.
+
+### Sorting
+For sorting by user_id, I implemented the Comparable interface and the equals method on the Customer object. Then I sorted the list using the sort method on the Collections class. 
+
+### Printing the list
+I print the filtered list in the Main class.
+
